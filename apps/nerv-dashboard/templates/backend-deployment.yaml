@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nerv-dashboard-backend
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: {{ .Values.backend.replicas }}
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: nerv-dashboard-backend
+  template:
+    metadata:
+      labels:
+        app: nerv-dashboard-backend
+    spec:
+      {{- if .Values.backend.hostNetwork }}
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
+      {{- end }}
+      serviceAccountName: {{ .Values.serviceAccount.name }}
+      imagePullSecrets:
+        - name: {{ .Values.image.pullSecret }}
+      containers:
+        - name: backend
+          image: "{{ .Values.image.registry }}/{{ .Values.image.backend.repository }}:{{ .Values.image.backend.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.backend.port }}
+          env:
+            - name: PYTHONUNBUFFERED
+              value: "{{ .Values.backend.env.pythonUnbuffered }}"
+            - name: HOST_PROC
+              value: "{{ .Values.backend.env.hostProc }}"
+            - name: HOST_DISK_MYBOOK
+              value: "{{ .Values.backend.env.hostDiskMybook }}"
+            - name: HOST_DISK_PASSPORT
+              value: "{{ .Values.backend.env.hostDiskPassport }}"
+            - name: MAGI_AGENT_URL
+              value: "{{ .Values.backend.env.magiAgentUrl }}"
+          volumeMounts:
+            - name: host-proc
+              mountPath: /host/proc
+              readOnly: true
+            - name: host-mybook
+              mountPath: /mnt/MyBook500GB
+              readOnly: true
+            - name: host-passport
+              mountPath: /mnt/Passport2TB
+              readOnly: true
+      volumes:
+        - name: host-proc
+          hostPath:
+            path: /proc
+        - name: host-mybook
+          hostPath:
+            path: /mnt/MyBook500GB
+        - name: host-passport
+          hostPath:
+            path: /mnt/Passport2TB

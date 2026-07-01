@@ -1,0 +1,6 @@
+apiVersion: v2
+name: nerv-dashboard
+description: Helm chart para o nerv-dashboard (backend FastAPI + frontend React)
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
