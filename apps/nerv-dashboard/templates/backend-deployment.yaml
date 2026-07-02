@@ -14,6 +14,8 @@ spec:
     metadata:
       labels:
         app: nerv-dashboard-backend
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
     spec:
       {{- if .Values.backend.hostNetwork }}
       hostNetwork: true
