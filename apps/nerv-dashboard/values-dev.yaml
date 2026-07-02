@@ -1,0 +1,13 @@
+namespace: nerv-dashboard-dev
+
+backend:
+  nodePort: 30181
+
+frontend:
+  nodePort: 30180
+
+image:
+  backend:
+    tag: "latest"
+  frontend:
+    tag: "latest"
