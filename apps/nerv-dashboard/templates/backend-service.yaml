@@ -9,5 +9,5 @@ spec:
     app: nerv-dashboard-backend
   ports:
     - port: {{ .Values.backend.port }}
-      targetPort: {{ .Values.backend.port }}
+      targetPort: {{ .Values.backend.containerPort }}
       nodePort: {{ .Values.backend.nodePort }}

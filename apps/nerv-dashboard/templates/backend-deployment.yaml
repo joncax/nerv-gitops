@@ -27,7 +27,7 @@ spec:
           image: "{{ .Values.image.registry }}/{{ .Values.image.backend.repository }}:{{ .Values.image.backend.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - containerPort: {{ .Values.backend.port }}
+            - containerPort: {{ .Values.backend.containerPort }}
           envFrom:
             - configMapRef:
                 name: nerv-dashboard-backend-config

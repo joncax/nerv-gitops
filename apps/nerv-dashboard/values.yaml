@@ -21,6 +21,7 @@ image:
 backend:
     replicas: 1
     hostNetwork: true
+    containerPort: 8000
     port: 8000
     nodePort: 30081
     env:

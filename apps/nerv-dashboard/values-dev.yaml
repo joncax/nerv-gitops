@@ -1,6 +1,10 @@
 namespace: nerv-dashboard-dev
 
+serviceAccount:
+  name: nerv-dashboard-dev-sa
+
 backend:
+  containerPort: 8001
   nodePort: 30181
 
 frontend:
