@@ -9,3 +9,4 @@ data:
   HOST_DISK_MYBOOK: "{{ .Values.backend.env.hostDiskMybook }}"
   HOST_DISK_PASSPORT: "{{ .Values.backend.env.hostDiskPassport }}"
   MAGI_AGENT_URL: "{{ .Values.backend.env.magiAgentUrl }}"
+  APP_PORT: "{{ .Values.backend.containerPort }}"
