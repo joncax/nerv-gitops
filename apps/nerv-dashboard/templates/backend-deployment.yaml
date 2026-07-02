@@ -28,17 +28,9 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: {{ .Values.backend.port }}
-          env:
-            - name: PYTHONUNBUFFERED
-              value: "{{ .Values.backend.env.pythonUnbuffered }}"
-            - name: HOST_PROC
-              value: "{{ .Values.backend.env.hostProc }}"
-            - name: HOST_DISK_MYBOOK
-              value: "{{ .Values.backend.env.hostDiskMybook }}"
-            - name: HOST_DISK_PASSPORT
-              value: "{{ .Values.backend.env.hostDiskPassport }}"
-            - name: MAGI_AGENT_URL
-              value: "{{ .Values.backend.env.magiAgentUrl }}"
+          envFrom:
+            - configMapRef:
+                name: nerv-dashboard-backend-config
           volumeMounts:
             - name: host-proc
               mountPath: /host/proc

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: nerv-dashboard-backend-config
+    namespace: {{ .Values.namespace }}
+data:
+  PYTHONUNBUFFERED: "{{ .Values.backend.env.pythonUnbuffered }}"
+  HOST_PROC: "{{ .Values.backend.env.hostProc }}"
+  HOST_DISK_MYBOOK: "{{ .Values.backend.env.hostDiskMybook }}"
+  HOST_DISK_PASSPORT: "{{ .Values.backend.env.hostDiskPassport }}"
+  MAGI_AGENT_URL: "{{ .Values.backend.env.magiAgentUrl }}"
