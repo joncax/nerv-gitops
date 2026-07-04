@@ -36,3 +36,10 @@ frontend:
     replicas: 1
     port: 80
     nodePort: 30080
+
+# Infisical (secrets management)
+infisical:
+    connectionAddress: http://192.168.1.60:9000
+    projectId: "69002f93-794d-43be-a53f-6314f640c6c0"
+    environmentSlug: prod
+    machineIdentitySecretName: infisical-machine-identity
