@@ -4,6 +4,7 @@ metadata:
   name: nerv-pantry-postgres
   namespace: {{ .Values.namespace }}
 spec:
+  revisionHistoryLimit: 3
   replicas: 1
   strategy:
     type: Recreate
