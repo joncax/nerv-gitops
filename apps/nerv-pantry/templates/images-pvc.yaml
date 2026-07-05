@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: images-pvc
+  name: {{ .Values.images.pvcName }}
   namespace: {{ .Values.namespace }}
 spec:
   accessModes:

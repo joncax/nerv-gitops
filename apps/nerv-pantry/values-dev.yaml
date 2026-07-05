@@ -5,3 +5,9 @@ backend:
 
 frontend:
   nodePort: 30290
+
+postgres:
+  pvcName: postgres-pvc-dev
+
+images:
+  pvcName: images-pvc-dev

@@ -41,4 +41,4 @@ spec:
       volumes:
         - name: images-data
           persistentVolumeClaim:
-            claimName: images-pvc
+            claimName: {{ .Values.images.pvcName }}
