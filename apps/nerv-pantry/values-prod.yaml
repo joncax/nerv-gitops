@@ -1,11 +1,12 @@
 namespace: nerv-pantry
-
 backend:
   nodePort: 30191
   image:
     tag: "23ddcb5"
-
 frontend:
   nodePort: 30190
   image:
     tag: "23ddcb5"
+
+infisical:
+  environmentSlug: prod

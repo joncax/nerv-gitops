@@ -38,3 +38,9 @@ postgres:
 images:
   storage: 5Gi
   pvcName: images-pvc
+
+infisical:
+  connectionAddress: "http://192.168.1.60:9000"
+  projectId: "3f1362ed-1e62-4d7a-ba6b-2a7d3d8f38ce"
+  environmentSlug: prod
+  machineIdentitySecretName: infisical-machine-identity
