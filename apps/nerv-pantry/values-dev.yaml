@@ -3,12 +3,12 @@ namespace: nerv-pantry-dev
 backend:
   nodePort: 30291
   image:
-    tag: "latest"
+    tag: "23ddcb5"
 
 frontend:
   nodePort: 30290
   image:
-    tag: "latest"
+    tag: "23ddcb5"
 
 postgres:
   pvcName: postgres-pvc-dev
