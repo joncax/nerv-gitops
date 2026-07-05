@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nerv-pantry-backend-config
+  namespace: {{ .Values.namespace }}
+data:
+  POSTGRES_HOST: {{ .Values.backend.env.postgresHost | quote }}
+  POSTGRES_PORT: {{ .Values.backend.env.postgresPort | quote }}
+  POSTGRES_DB: {{ .Values.backend.env.postgresDb | quote }}
+  POSTGRES_USER: {{ .Values.backend.env.postgresUser | quote }}
+  IMAGES_PATH: {{ .Values.backend.env.imagesPath | quote }}
+  APP_VERSION: {{ .Values.backend.env.appVersion | quote }}
+  DEBUG: {{ .Values.backend.env.debug | quote }}
+  OFF_API_URL: {{ .Values.backend.env.offApiUrl | quote }}

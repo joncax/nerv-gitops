@@ -1,0 +1,7 @@
+namespace: nerv-pantry
+
+backend:
+  nodePort: 30191
+
+frontend:
+  nodePort: 30190
