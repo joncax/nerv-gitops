@@ -2,6 +2,10 @@ namespace: nerv-pantry
 
 backend:
   nodePort: 30191
+  image:
+    tag: "latest"
 
 frontend:
   nodePort: 30190
+  image:
+    tag: "latest"
