@@ -4,7 +4,7 @@ metadata:
   name: nerv-pantry-backend
   namespace: {{ .Values.namespace }}
 spec:
-  revisionHistoryLimit: 3
+  revisionHistoryLimit: 2
   replicas: 1
   selector:
     matchLabels:
