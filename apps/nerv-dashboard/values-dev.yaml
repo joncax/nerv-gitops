@@ -12,6 +12,6 @@ frontend:
 
 image:
   backend:
-    tag: "fadf27f"
+    tag: "86f4ce9"
   frontend:
-    tag: "fadf27f"
+    tag: "86f4ce9"
