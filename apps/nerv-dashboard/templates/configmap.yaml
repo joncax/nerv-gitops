@@ -10,3 +10,4 @@ data:
   HOST_DISK_PASSPORT: "{{ .Values.backend.env.hostDiskPassport }}"
   MAGI_AGENT_URL: "{{ .Values.backend.env.magiAgentUrl }}"
   APP_PORT: "{{ .Values.backend.containerPort }}"
+  APPS_CONFIG_PATH: "/config/apps_config.json"

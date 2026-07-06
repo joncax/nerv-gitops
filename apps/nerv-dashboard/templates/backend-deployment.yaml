@@ -44,6 +44,8 @@ spec:
             - name: host-passport
               mountPath: /mnt/Passport2TB
               readOnly: true
+            - name: nerv-dashboard-config
+              mountPath: /config
       volumes:
         - name: host-proc
           hostPath:
@@ -54,3 +56,6 @@ spec:
         - name: host-passport
           hostPath:
             path: /mnt/Passport2TB
+        - name: nerv-dashboard-config
+          hostPath:
+            path: /opt/nerv-dashboard
