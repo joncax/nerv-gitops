@@ -8,6 +8,6 @@ frontend:
 
 image:
   backend:
-    tag: "fadf27f"
+    tag: "f704fe2"
   frontend:
-    tag: "fadf27f"
+    tag: "f704fe2"
