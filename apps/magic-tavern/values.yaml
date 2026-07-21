@@ -36,6 +36,6 @@ postgres:
 
 infisical:
   connectionAddress: "http://192.168.1.60:9000"
-  projectId: "1c6b83b8-8340-4f2e-9543-0c9bd302b6f4"
+  projectId: "c042a897-6e8a-49c0-8733-9a41e617c632"
   environmentSlug: prod
   machineIdentitySecretName: infisical-machine-identity
