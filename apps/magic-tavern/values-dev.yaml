@@ -1,17 +1,13 @@
 namespace: magic-tavern-dev
-
 backend:
   nodePort: 30481
   image:
-    tag: "replace-me-dev"
-
+    tag: "f6c6aa2"
 frontend:
   nodePort: 30480
   image:
-    tag: "replace-me-dev"
-
+    tag: "f6c6aa2"
 postgres:
   pvcName: postgres-pvc-dev
-
 infisical:
   environmentSlug: dev
