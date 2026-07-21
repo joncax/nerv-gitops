@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: magic-tavern-postgres
+  namespace: {{ .Values.namespace }}
+spec:
+  type: ClusterIP
+  selector:
+    app: magic-tavern-postgres
+  ports:
+    - port: {{ .Values.postgres.port }}
+      targetPort: {{ .Values.postgres.port }}

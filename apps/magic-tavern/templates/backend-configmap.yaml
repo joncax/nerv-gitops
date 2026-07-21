@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: magic-tavern-backend-config
+  namespace: {{ .Values.namespace }}
+data:
+  POSTGRES_HOST: {{ .Values.backend.env.postgresHost | quote }}
+  POSTGRES_PORT: {{ .Values.backend.env.postgresPort | quote }}
+  POSTGRES_DB: {{ .Values.backend.env.postgresDb | quote }}
+  POSTGRES_USER: {{ .Values.backend.env.postgresUser | quote }}
+  APP_VERSION: {{ .Values.backend.env.appVersion | quote }}
+  DEBUG: {{ .Values.backend.env.debug | quote }}
+  JWT_ALGORITHM: {{ .Values.backend.env.jwtAlgorithm | quote }}

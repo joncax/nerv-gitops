@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: magic-tavern-backend
+  namespace: {{ .Values.namespace }}
+spec:
+  revisionHistoryLimit: 2
+  replicas: 1
+  selector:
+    matchLabels:
+      app: magic-tavern-backend
+  template:
+    metadata:
+      labels:
+        app: magic-tavern-backend
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/backend-configmap.yaml") . | sha256sum }}
+    spec:
+      imagePullSecrets:
+        - name: {{ .Values.imagePullSecret }}
+      containers:
+        - name: backend
+          image: "{{ .Values.backend.image.repository }}:{{ .Values.backend.image.tag }}"
+          imagePullPolicy: {{ .Values.backend.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.backend.containerPort }}
+          envFrom:
+            - configMapRef:
+                name: magic-tavern-backend-config
+            - secretRef:
+                name: {{ .Values.backend.secretName }}
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: {{ .Values.backend.containerPort }}
+            initialDelaySeconds: 15
+            periodSeconds: 10

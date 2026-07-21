@@ -1,0 +1,6 @@
+apiVersion: v2
+name: magic-tavern
+description: Magic Tavern - jogo de puzzle com RPG/crafting D&D (backend + frontend + postgres)
+type: application
+version: 0.1.0
+appVersion: "0.1.0"

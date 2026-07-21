@@ -1,0 +1,14 @@
+namespace: magic-tavern
+
+backend:
+  nodePort: 30381
+  image:
+    tag: "replace-me-prod"
+
+frontend:
+  nodePort: 30380
+  image:
+    tag: "replace-me-prod"
+
+infisical:
+  environmentSlug: prod

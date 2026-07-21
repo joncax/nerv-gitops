@@ -1,0 +1,41 @@
+namespace: magic-tavern
+imagePullSecret: ghcr-secret
+
+backend:
+  image:
+    repository: ghcr.io/joncax/magic-tavern-backend
+    tag: latest
+    pullPolicy: IfNotPresent
+  port: 8000
+  containerPort: 8000
+  nodePort: 30381
+  secretName: magic-tavern-backend-secret
+  env:
+    postgresHost: magic-tavern-postgres
+    postgresPort: "5432"
+    postgresDb: magic_tavern
+    postgresUser: tavern_user
+    appVersion: "0.1.0"
+    debug: "false"
+    jwtAlgorithm: "HS256"
+
+frontend:
+  image:
+    repository: ghcr.io/joncax/magic-tavern-frontend
+    tag: latest
+    pullPolicy: IfNotPresent
+  port: 80
+  containerPort: 80
+  nodePort: 30380
+
+postgres:
+  image: postgres:16-alpine
+  port: 5432
+  storage: 5Gi
+  pvcName: postgres-pvc
+
+infisical:
+  connectionAddress: "http://192.168.1.60:9000"
+  projectId: "1c6b83b8-8340-4f2e-9543-0c9bd302b6f4"
+  environmentSlug: prod
+  machineIdentitySecretName: infisical-machine-identity
